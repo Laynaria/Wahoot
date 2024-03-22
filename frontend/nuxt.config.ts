@@ -3,13 +3,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/apollo"],
 
-  ssr: false,
+  // ssr: false,
 
   apollo: {
     autoImports: true,
     clients: {
       default: {
-        httpEndpoint: "http://localhost:5010/graphql",
+        httpEndpoint: "http://backend:5010/graphql",
+        // httpEndpoint: "http://localhost:5010/graphql",
       },
     },
   },

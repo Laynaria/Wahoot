@@ -36,4 +36,6 @@ const { data } = await useAsyncQuery<UserResults>(query);
   <p class="bg-red-400">TEST</p>
   <p>There are {{ data?.getUsers?.length || 0 }} users.</p>
   <p>{{ data?.getUsers[0].username }}</p>
+  <p>{{ data?.getUsers[0].email }}</p>
+  <p>{{ data?.getUsers[0].id }}</p>
 </template>
