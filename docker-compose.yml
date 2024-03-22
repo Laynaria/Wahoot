@@ -14,6 +14,18 @@ services:
     depends_on:
       - db
 
+  frontend:
+    build: ./frontend
+    command: npm run dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/pages/:/app/pages/:rw
+      - ./frontend/public/:/app/public/:rw
+      - ./frontend/server/:/app/server/:rw
+      - ./frontend/app.vue:/app/app.vue:rw
+      - ./frontend/package.json:/app/package.json:rw
+
   db:
     image: postgres
     restart: always
