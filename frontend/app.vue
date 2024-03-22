@@ -1,22 +1,39 @@
 <script lang="ts" setup>
 const query = gql`
-  query getShips($limit: Int!) {
-    ships(limit: $limit) {
+  query GetUsers {
+    getUsers {
+      email
       id
-      name
+      password
+      username
     }
   }
 `;
 
-const variables = { limit: 5 };
+type User = {
+  id: number;
+  email: string;
+  password: string;
+  username: string;
+};
 
-const { data }: any = await useAsyncQuery(query, variables);
+type UserResults = {
+  getUsers: [User];
+};
+
+const { data } = await useAsyncQuery<UserResults>(query);
 </script>
 
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <header>
+    <nav>
+      <ul>
+        <li><NuxtLink to="/">Home</NuxtLink></li>
+        <li><NuxtLink to="/About">About</NuxtLink></li>
+      </ul>
+    </nav>
+  </header>
   <p class="bg-red-400">TEST</p>
-  <p>There are {{ data?.ships?.length || 0 }} ships.</p>
+  <p>There are {{ data?.getUsers?.length || 0 }} users.</p>
+  <p>{{ data?.getUsers[0].username }}</p>
 </template>

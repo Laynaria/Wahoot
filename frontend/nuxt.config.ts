@@ -3,11 +3,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/apollo"],
 
+  ssr: false,
+
   apollo: {
     autoImports: true,
     clients: {
       default: {
-        httpEndpoint: "https://spacex-production.up.railway.app",
+        httpEndpoint: "http://localhost:5010/graphql",
       },
     },
   },
