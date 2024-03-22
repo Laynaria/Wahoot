@@ -3,7 +3,8 @@
     <nav>
       <ul class="flex gap-8 justify-center">
         <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/About">About</NuxtLink></li>
+        <li><NuxtLink to="/about">About</NuxtLink></li>
+        <li><NuxtLink to="/doc">Doc</NuxtLink></li>
       </ul>
     </nav>
   </header>

@@ -21,7 +21,7 @@ type UserResults = {
   getUsers: [User];
 };
 
-const { data } = await useAsyncQuery<UserResults>(query);
+const { data } = await useLazyAsyncQuery<UserResults>(query);
 </script>
 
 <template>
