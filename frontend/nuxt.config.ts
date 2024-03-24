@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     clients: {
       default: {
         // httpEndpoint: "http://backend:5010/graphql",
-        httpEndpoint: "http://localhost:5010/graphql",
+        httpEndpoint: process.env.BACKEND_URL as string,
       },
     },
   },

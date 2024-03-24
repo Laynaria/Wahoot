@@ -24,6 +24,7 @@ services:
       - ./frontend/public/:/app/public/:rw
       - ./frontend/server/:/app/server/:rw
       - ./frontend/app.vue:/app/app.vue:rw
+      - ./frontend/.env:/app/.env:rw
       - ./frontend/package.json:/app/package.json:rw
 
   db:
