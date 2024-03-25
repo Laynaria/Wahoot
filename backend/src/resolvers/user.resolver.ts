@@ -1,6 +1,7 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { User } from "../entities/user.entity";
 import * as UserService from "../services/user.service";
+import * as AuthService from "../services/auth.service";
 
 @Resolver(User)
 export class UserResolver {
@@ -21,5 +22,17 @@ export class UserResolver {
     @Arg("password") password: string
   ): Promise<User> {
     return UserService.createUser(email, username, password);
+  }
+
+  @Mutation(() => String)
+  async logIn(
+    @Arg("email") email: string,
+    @Arg("password") password: string
+  ): Promise<String> {
+    try {
+      return await AuthService.signIn(email, password);
+    } catch (e) {
+      throw new Error("Invalid User");
+    }
   }
 }
