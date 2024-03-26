@@ -15,15 +15,15 @@ export const getByEmail = (email: string): Promise<User> => {
   return User.findOneByOrFail({ email });
 };
 
-export async function createUser(
+export const createUser = async (
   email: string,
   username: string,
   password: string
-): Promise<User> {
+): Promise<User> => {
   const user = new User();
   user.email = email;
   user.username = username;
   user.password = await argon2.hash(password);
 
   return user.save();
-}
+};

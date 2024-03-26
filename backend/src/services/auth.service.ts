@@ -9,7 +9,10 @@ import { User } from "../entities/user.entity";
  * @param password = user password
  * @returns a token as string
  */
-export async function signIn(email: string, password: string): Promise<string> {
+export const signIn = async (
+  email: string,
+  password: string
+): Promise<string> => {
   try {
     const user: User = await UserService.getByEmail(email);
 
@@ -25,7 +28,7 @@ export async function signIn(email: string, password: string): Promise<string> {
   } catch (e) {
     throw new Error("Invalid Authentification!");
   }
-}
+};
 
 /**
  *
@@ -33,16 +36,19 @@ export async function signIn(email: string, password: string): Promise<string> {
  * @param hashedPassword user password from database
  * @returns a boolean true or false
  */
-export async function verifyPassword(password: string, hashedPassword: string) {
+export const verifyPassword = async (
+  password: string,
+  hashedPassword: string
+) => {
   return await argon2.verify(hashedPassword, password);
-}
+};
 
 /**
  *
  * @param payload = jwt payload
  * @returns a token as string
  */
-export function signJwt(payload: any): string {
+export const signJwt = (payload: any): string => {
   if (process.env.JWT_SECRET_KEY === undefined) {
     throw new Error();
   }
@@ -50,4 +56,4 @@ export function signJwt(payload: any): string {
   return jwt.sign(payload, process.env.JWT_SECRET_KEY, {
     expiresIn: 60 * 60 * 24 * 14,
   });
-}
+};
