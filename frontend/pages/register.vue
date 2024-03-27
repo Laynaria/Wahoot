@@ -9,6 +9,8 @@ const REGISTER = gql`
   }
 `;
 
+const router = useRouter();
+
 type User = {
   email: string;
   username: string;
@@ -28,6 +30,7 @@ const { mutate } = useMutation(REGISTER, {
 const handleSubmit = async (e: Event) => {
   e.preventDefault();
   await mutate();
+  router.push("/login");
 };
 </script>
 
