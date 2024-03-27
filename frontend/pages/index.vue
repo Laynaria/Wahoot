@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const query = gql`
+const GET_ALL_USERS = gql`
   query GetUsers {
     getUsers {
       email
@@ -21,7 +21,7 @@ type UserResults = {
   getUsers: [User];
 };
 
-const { data } = await useLazyAsyncQuery<UserResults>(query);
+const { data } = await useLazyAsyncQuery<UserResults>(GET_ALL_USERS);
 </script>
 
 <template>
