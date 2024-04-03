@@ -36,6 +36,7 @@ const handleSubmit = async (e: Event) => {
 
 <template>
   <h1>Register</h1>
+
   <form class="flex flex-col gap-4">
     <label for="username">
       Username:
