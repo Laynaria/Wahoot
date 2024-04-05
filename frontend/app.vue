@@ -1,22 +1,31 @@
+<script lang="ts" setup>
+import Dashboard from "./components/Dashboard.vue";
+</script>
+
 <template>
-  <header>
-    <nav>
-      <ul class="flex gap-8 justify-center">
-        <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/about">About</NuxtLink></li>
-        <li><NuxtLink to="/login">Login</NuxtLink></li>
-        <li><NuxtLink to="/register">Register</NuxtLink></li>
-        <li><NuxtLink to="/doc">Doc</NuxtLink></li>
-      </ul>
-    </nav>
-  </header>
-  <main class="flex flex-col gap-2 items-center mt-8">
+  <Dashboard />
+  <main class="flex flex-col gap-2 items-center mt-8 sm:row-start-1 w-full">
     <NuxtPage />
   </main>
 </template>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: rgb(189, 189, 228);
+}
+
+#__nuxt {
+  min-height: 100vh;
+
+  @media screen and (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+  }
 }
 </style>

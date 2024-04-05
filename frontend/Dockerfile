@@ -13,5 +13,6 @@ COPY app.vue app.vue
 COPY server server
 COPY public public
 COPY pages pages
+COPY components components
 
 CMD npm run dev
