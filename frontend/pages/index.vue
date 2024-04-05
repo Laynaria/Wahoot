@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { UserResults } from "~/types/user.types";
+
 const GET_ALL_USERS = gql`
   query GetUsers {
     getUsers {
@@ -9,17 +11,6 @@ const GET_ALL_USERS = gql`
     }
   }
 `;
-
-type User = {
-  id: number;
-  email: string;
-  password: string;
-  username: string;
-};
-
-type UserResults = {
-  getUsers: [User];
-};
 
 const { data } = await useLazyAsyncQuery<UserResults>(GET_ALL_USERS);
 </script>

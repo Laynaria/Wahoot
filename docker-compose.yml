@@ -24,9 +24,11 @@ services:
       - ./frontend/public/:/app/public/:rw
       - ./frontend/server/:/app/server/:rw
       - ./frontend/components/:/app/components/:rw
+      - ./frontend/types/:/app/types/:rw
       - ./frontend/app.vue:/app/app.vue:rw
       - ./frontend/.env:/app/.env:rw
       - ./frontend/package.json:/app/package.json:rw
+      - ./frontend/nuxt.config.ts:/app/nuxt.config.ts:rw
 
   db:
     image: postgres

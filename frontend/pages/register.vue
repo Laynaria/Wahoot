@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { UserRegister } from "~/types/user.types";
+
 const REGISTER = gql`
   mutation Register($password: String!, $username: String!, $email: String!) {
     register(password: $password, username: $username, email: $email) {
@@ -11,13 +13,7 @@ const REGISTER = gql`
 
 const router = useRouter();
 
-type User = {
-  email: string;
-  username: string;
-  password: string;
-};
-
-const variables = ref<User>({
+const variables = ref<UserRegister>({
   email: "",
   username: "",
   password: "",

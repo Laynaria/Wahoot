@@ -14,5 +14,6 @@ COPY server server
 COPY public public
 COPY pages pages
 COPY components components
+COPY types types
 
 CMD npm run dev

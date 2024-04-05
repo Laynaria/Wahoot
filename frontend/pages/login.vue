@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { UserLogin } from "~/types/user.types";
+
 const LOGIN = gql`
   mutation LogIn($password: String!, $email: String!) {
     logIn(password: $password, email: $email)
@@ -6,14 +8,6 @@ const LOGIN = gql`
 `;
 
 const router = useRouter();
-
-type User = {
-  email: string;
-  username: string;
-  password: string;
-};
-
-type UserLogin = Omit<User, "username">;
 
 const variables = ref<UserLogin>({
   email: "",
