@@ -1,9 +1,22 @@
 <script lang="ts" setup>
-import type { UserLogin } from "~/types/user.types";
+import { jwtDecode } from "jwt-decode";
+import type { JwtPayload, UserLogin } from "~/types/user.types";
+
+const user = inject("user");
 
 const LOGIN = gql`
   mutation LogIn($password: String!, $email: String!) {
     logIn(password: $password, email: $email)
+  }
+`;
+
+const GET_USER = gql`
+  query GetUserById($getUserByIdId: Float!) {
+    getUserById(id: $getUserByIdId) {
+      email
+      id
+      username
+    }
   }
 `;
 
@@ -23,7 +36,17 @@ const handleSubmit = async (e: Event) => {
   const res = await mutate();
 
   localStorage.setItem("token", res?.data?.logIn);
-  // router.push("/");
+
+  const decodedToken = jwtDecode(res?.data?.logIn) as JwtPayload;
+  const { id } = decodedToken;
+
+  const getUserVariables = { getUserByIdId: id };
+
+  const { data } = await useAsyncQuery(GET_USER, getUserVariables);
+
+  user.value = await data?.value?.getUserById;
+
+  router.push("/");
 };
 </script>
 
