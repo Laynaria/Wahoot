@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { userContext } from "~/types/user.types";
 
-const user: userContext | undefined = inject("user");
+const user = inject("user") as Ref<userContext>;
 </script>
 
 <template>

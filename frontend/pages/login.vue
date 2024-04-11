@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { jwtDecode } from "jwt-decode";
-import type { JwtPayload, UserLogin } from "~/types/user.types";
+import type { JwtPayload, UserLogin, userContext } from "~/types/user.types";
 
-const user = inject("user");
+const user = inject("user") as Ref<userContext>;
 
 const LOGIN = gql`
   mutation LogIn($password: String!, $email: String!) {
