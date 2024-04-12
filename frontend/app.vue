@@ -3,6 +3,7 @@ import Dashboard from "./components/Dashboard.vue";
 import { useUserContext } from "./contexts/userContext";
 
 useUserContext();
+useUserContext().updateUser();
 </script>
 
 <template>
@@ -20,7 +21,7 @@ useUserContext();
 }
 
 body {
-  background-color: rgb(189, 189, 228);
+  background-color: #bdbde4;
 }
 
 #__nuxt {
