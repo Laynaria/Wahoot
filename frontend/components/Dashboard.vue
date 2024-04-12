@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import type { userContext } from "~/types/user.types";
-
-const user = inject("user") as Ref<userContext>;
+const { user } = inject("user");
 </script>
 
 <template>

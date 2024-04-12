@@ -15,5 +15,6 @@ COPY public public
 COPY pages pages
 COPY components components
 COPY types types
+COPY contexts contexts
 
 CMD npm run dev

@@ -13,8 +13,16 @@ export type UserResults = {
   getUsers: [User];
 };
 
-export type userContext = Omit<User, "password">;
+export type UserContext = Omit<User, "password">;
 
 export interface JwtPayload {
   id: number;
 }
+
+type userQuery = {
+  getUserById: {
+    email: string;
+    id: number;
+    username: string;
+  };
+};

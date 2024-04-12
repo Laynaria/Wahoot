@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import Dashboard from "./components/Dashboard.vue";
-import type { userContext } from "./types/user.types";
+import { useUserContext } from "./contexts/userContext";
 
-const user = ref<userContext>({ username: "", id: 0, email: "" });
-provide("user", user);
+useUserContext();
 </script>
 
 <template>
