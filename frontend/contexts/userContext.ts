@@ -33,9 +33,15 @@ export const useUserContext = () => {
     }
   };
 
+  const disconnectUser = () => {
+    user.value = { username: "", id: 0, email: "" };
+    localStorage.removeItem("token");
+  };
+
   const ctx = {
     user,
     updateUser,
+    disconnectUser,
   };
 
   provide("user", ctx);

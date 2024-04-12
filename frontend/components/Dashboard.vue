@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { user } = inject("user");
+const { user, disconnectUser } = inject("user");
 </script>
 
 <template>
@@ -12,6 +12,7 @@ const { user } = inject("user");
         <li><NuxtLink to="/login">Login</NuxtLink></li>
         <li><NuxtLink to="/register">Register</NuxtLink></li>
         <li><NuxtLink to="/doc">Doc</NuxtLink></li>
+        <li @click="disconnectUser" class="cursor-pointer">Disconnect</li>
       </ul>
     </nav>
   </header>
