@@ -46,5 +46,6 @@ export const useUserContext = () => {
 
   provide("user", ctx);
 
+  updateUser();
   return ctx;
 };

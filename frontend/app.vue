@@ -3,7 +3,6 @@ import Dashboard from "./components/Dashboard.vue";
 import { useUserContext } from "./contexts/userContext";
 
 useUserContext();
-useUserContext().updateUser();
 </script>
 
 <template>
