@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { user, disconnectUser } = inject("user");
+console.log(user);
 </script>
 
 <template>
@@ -9,10 +10,16 @@ const { user, disconnectUser } = inject("user");
       <ul class="flex flex-col gap-8 justify-center">
         <li><NuxtLink to="/">Home</NuxtLink></li>
         <li><NuxtLink to="/about">About</NuxtLink></li>
-        <li><NuxtLink to="/login">Login</NuxtLink></li>
-        <li><NuxtLink to="/register">Register</NuxtLink></li>
-        <li><NuxtLink to="/doc">Doc</NuxtLink></li>
-        <li @click="disconnectUser" class="cursor-pointer fixed bottom-8">
+        <li v-if="user.id === 0"><NuxtLink to="/login">Login</NuxtLink></li>
+        <li v-if="user.id === 0">
+          <NuxtLink to="/register">Register</NuxtLink>
+        </li>
+
+        <li
+          v-if="user.id !== 0"
+          @click="disconnectUser"
+          class="cursor-pointer fixed bottom-8"
+        >
           Disconnect
         </li>
       </ul>
