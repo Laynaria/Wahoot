@@ -9,8 +9,6 @@ const LOGIN = gql`
   }
 `;
 
-const router = useRouter();
-
 const variables = ref<UserLogin>({
   email: "",
   password: "",
@@ -27,8 +25,6 @@ const handleSubmit = async (e: Event) => {
   localStorage.setItem("token", res?.data?.logIn);
 
   updateUser();
-
-  router.push("/");
 };
 </script>
 
