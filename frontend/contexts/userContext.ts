@@ -15,8 +15,6 @@ const GET_USER = gql`
 export const useUserContext = () => {
   const user = ref<UserContext>({ username: "", id: 0, email: "" });
 
-  const router = useRouter();
-
   const updateUser = async () => {
     const token = localStorage.getItem("token");
 
@@ -33,14 +31,15 @@ export const useUserContext = () => {
 
       user.value = await data?.value?.getUserById;
 
-      router.push("/");
+      await navigateTo("/");
     }
   };
 
-  const disconnectUser = () => {
+  const disconnectUser = async () => {
     user.value = { username: "", id: 0, email: "" };
     localStorage.removeItem("token");
-    router.push("/login");
+    await navigateTo("/login");
+    reloadNuxtApp();
   };
 
   const ctx = {
