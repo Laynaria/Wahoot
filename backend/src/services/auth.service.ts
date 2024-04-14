@@ -57,3 +57,11 @@ export const signJwt = (payload: any): string => {
     expiresIn: 60 * 60 * 24 * 14,
   });
 };
+
+export const verifyToken = (token: string) => {
+  if (process.env.JWT_SECRET_KEY === undefined) {
+    throw new Error();
+  }
+
+  return jwt.verify(token, process.env.JWT_SECRET_KEY);
+};
