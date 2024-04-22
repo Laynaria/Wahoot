@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-const { user, disconnectUser } = inject("user");
-console.log(user);
+import type { InjectContext } from "~/types/user.types";
+
+const { user, disconnectUser } = inject("user") as InjectContext;
 </script>
 
 <template>

@@ -13,7 +13,7 @@ const GET_USER = gql`
 `;
 
 export const useUserContext = () => {
-  const user = ref<UserContext>({ username: "", id: 0, email: "" });
+  const user = ref<UserContext | undefined>({ username: "", id: 0, email: "" });
 
   const updateUser = async () => {
     const token = localStorage.getItem("token");

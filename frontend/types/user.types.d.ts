@@ -15,14 +15,20 @@ export type UserResults = {
 
 export type UserContext = Omit<User, "password">;
 
-export interface JwtPayload {
-  id: number;
-}
+export type InjectContext = {
+  user: UserContext;
+  updateUser: () => void;
+  disconnectUser: () => void;
+};
 
-type userQuery = {
+export type userQuery = {
   getUserById: {
     email: string;
     id: number;
     username: string;
   };
 };
+
+export interface JwtPayload {
+  id: number;
+}

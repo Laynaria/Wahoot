@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { UserLogin } from "~/types/user.types";
+import type { InjectContext, UserLogin } from "~/types/user.types";
 
-const { updateUser } = inject("user");
+const { updateUser } = inject("user") as InjectContext;
 
 const LOGIN = gql`
   mutation LogIn($password: String!, $email: String!) {
