@@ -19,7 +19,7 @@ export const useUserContext = () => {
     const token = localStorage.getItem("token");
 
     if (token) {
-      const decodedToken = jwtDecode(token) as JwtPayload;
+      const decodedToken: JwtPayload = jwtDecode(token);
       const { id } = decodedToken;
 
       const getUserVariables = { getUserByIdId: id };
