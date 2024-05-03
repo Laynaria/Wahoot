@@ -26,6 +26,7 @@ services:
       - ./frontend/components/:/app/components/:rw
       - ./frontend/types/:/app/types/:rw
       - ./frontend/contexts/:/app/contexts/:rw
+      - ./frontend/__tests__/:/app/__tests__/:rw
       - ./frontend/app.vue:/app/app.vue:rw
       - ./frontend/.env:/app/.env:rw
       - ./frontend/package.json:/app/package.json:rw
