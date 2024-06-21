@@ -17,7 +17,7 @@ export type UserContext = Omit<User, "password">;
 
 export type InjectContext = {
   user: UserContext;
-  updateUser: () => void;
+  updateUser: (isCalled?: boolean) => void;
   disconnectUser: () => void;
 };
 

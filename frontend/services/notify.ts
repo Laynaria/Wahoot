@@ -9,7 +9,7 @@ updateGlobalOptions({
 });
 
 export const notifySuccess = (text: string) => {
-  toast.success(`${text} Success`, {});
+  toast.success(`${text} Successfull`, {});
 };
 
 export const notifyError = (text: string) => {
@@ -17,7 +17,7 @@ export const notifyError = (text: string) => {
 };
 
 export const notifyInfo = (text: string) => {
-  toast.info(`${text} Info`, {});
+  toast.info(`${text}`, {});
 };
 
 export const notifyWarn = (text: string) => {

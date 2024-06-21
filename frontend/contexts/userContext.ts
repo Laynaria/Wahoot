@@ -2,6 +2,10 @@ import { provide, ref } from "vue";
 import { jwtDecode } from "jwt-decode";
 import type { UserContext, JwtPayload, userQuery } from "~/types/user.types";
 
+import * as NotifyService from "~/services/notify";
+
+const { notifySuccess, notifyInfo } = NotifyService;
+
 const GET_USER = gql`
   query GetUserById($getUserByIdId: Float!) {
     getUserById(id: $getUserByIdId) {
@@ -15,7 +19,7 @@ const GET_USER = gql`
 export const useUserContext = () => {
   const user = ref<UserContext | undefined>({ username: "", id: 0, email: "" });
 
-  const updateUser = async () => {
+  const updateUser = async (isCalled: boolean = false) => {
     const token = localStorage.getItem("token");
 
     if (token) {
@@ -32,14 +36,21 @@ export const useUserContext = () => {
       user.value = await data?.value?.getUserById;
 
       await navigateTo("/");
+
+      if (isCalled) {
+        notifySuccess("Login");
+      }
     }
   };
 
   const disconnectUser = async () => {
     user.value = { username: "", id: 0, email: "" };
     localStorage.removeItem("token");
+
     await navigateTo("/login");
-    reloadNuxtApp();
+
+    notifyInfo("Disconnected!");
+    // reloadNuxtApp();
   };
 
   const ctx = {
