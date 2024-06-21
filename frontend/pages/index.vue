@@ -29,8 +29,8 @@ const { data, error } = await useLazyAsyncQuery<UserResults>(GET_ALL_USERS);
   <p v-if="!error">{{ data?.getUsers[0].username }}</p>
   <p v-if="!error">{{ data?.getUsers[0].email }}</p>
   <p v-if="!error">{{ data?.getUsers[0].id }}</p>
-  <button @click="notifySuccess">Success</button>
-  <button @click="notifyError">Error</button>
-  <button @click="notifyInfo">Info</button>
-  <button @click="notifyWarn">Warn</button>
+  <button @click="notifySuccess('Authentification')">Success</button>
+  <button @click="notifyError('Authentification')">Error</button>
+  <button @click="notifyInfo('Authentification')">Info</button>
+  <button @click="notifyWarn('Authentification')">Warn</button>
 </template>
