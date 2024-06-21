@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Dashboard from "./components/Dashboard.vue";
 import { useUserContext } from "./contexts/userContext";
+import "vue3-toastify/dist/index.css";
 
 useUserContext();
 </script>
