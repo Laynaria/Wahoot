@@ -2,8 +2,6 @@
 import type { UserResults } from "~/types/user.types";
 import * as NotifyService from "~/services/notify";
 
-import "vue3-toastify/dist/index.css";
-
 const { notifySuccess, notifyError, notifyInfo, notifyWarn } = NotifyService;
 
 const GET_ALL_USERS = gql`
