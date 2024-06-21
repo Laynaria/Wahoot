@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import type { InjectContext, UserLogin } from "~/types/user.types";
+import * as NotifyService from "~/services/notify";
+
+const { notifySuccess, notifyError, notifyInfo, notifyWarn } = NotifyService;
 
 const { updateUser } = inject("user") as InjectContext;
 
@@ -24,7 +27,7 @@ const handleSubmit = async (e: Event) => {
 
   localStorage.setItem("token", res?.data?.logIn);
 
-  updateUser();
+  updateUser(true);
 };
 </script>
 
