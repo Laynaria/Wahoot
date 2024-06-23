@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import * as NotifyService from "~/services/notify";
-import { ref } from "vue";
 
 const { notifySuccess, notifyError, notifyInfo, notifyWarn } = NotifyService;
 
@@ -14,4 +13,5 @@ const { notifySuccess, notifyError, notifyInfo, notifyWarn } = NotifyService;
 
 <template>
   <button @click="notifySuccess(`test`)">Success Button</button>
+  <button @click="notifyError(`test`)">Error Button</button>
 </template>
