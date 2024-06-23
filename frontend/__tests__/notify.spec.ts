@@ -5,6 +5,10 @@ import * as NotifyService from "~/services/notify";
 
 const { notifySuccess, notifyError, notifyInfo, notifyWarn } = NotifyService;
 
+beforeEach(() => {
+  render(NotifyWrapper);
+});
+
 describe("Success Notifications", () => {
   it("Success Notification function to exist", () => {
     expect(notifySuccess).toBeTruthy();
@@ -12,8 +16,6 @@ describe("Success Notifications", () => {
   });
 
   it("Success Toast rendered properly when funciton is called", async () => {
-    render(NotifyWrapper);
-
     const button = await screen.findByText("Success Button");
 
     await fireEvent.click(button);
@@ -31,8 +33,6 @@ describe("Error Notifications", () => {
   });
 
   it("Error Toast rendered properly when funciton is called", async () => {
-    render(NotifyWrapper);
-
     const button = await screen.findByText("Error Button");
 
     await fireEvent.click(button);
@@ -50,8 +50,6 @@ describe("Info Notifications", () => {
   });
 
   it("Info Toast rendered properly when funciton is called", async () => {
-    render(NotifyWrapper);
-
     const button = await screen.findByText("Info Button");
 
     await fireEvent.click(button);
@@ -62,7 +60,19 @@ describe("Info Notifications", () => {
   });
 });
 
-//     it("Warn Notification function to exist", () => {
-//       expect(notifyWarn).toBeTruthy();
-//       expect(typeof notifyWarn).toBe("function");
-//     });
+describe("Warn Notifications", () => {
+  it("Warn Notification function to exist", () => {
+    expect(notifyWarn).toBeTruthy();
+    expect(typeof notifyWarn).toBe("function");
+  });
+
+  it("Warn Toast rendered properly when funciton is called", async () => {
+    const button = await screen.findByText("Warn Button");
+
+    await fireEvent.click(button);
+
+    const notification = await screen.findByText("test Warn");
+
+    expect(notification.innerHTML).toBe("test Warn");
+  });
+});
