@@ -3,7 +3,11 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "verbatimModuleSyntax": false,
-    "types": ["@types/node", "@nuxt/vue-app", "@types/jest"]
-    "types": ["vue3-toastify/global"]
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app",
+      "@types/jest",
+      "vue3-toastify/global"
+    ]
   }
 }
