@@ -2,6 +2,12 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "types": ["vue3-toastify/global"]
+    "verbatimModuleSyntax": false,
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app",
+      "@types/jest",
+      "vue3-toastify/global"
+    ]
   }
 }
