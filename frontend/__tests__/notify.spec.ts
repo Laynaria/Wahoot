@@ -26,6 +26,12 @@ describe("Success Notifications", () => {
 
     notification.remove();
   });
+
+  it("Doesn't have a Success Toast anymore", async () => {
+    const notification = await screen.queryByText("test Successfull");
+
+    expect(notification).toBe(null);
+  });
 });
 
 describe("Error Notifications", () => {
@@ -44,6 +50,12 @@ describe("Error Notifications", () => {
     expect(notification.innerHTML).toBe("test Error");
 
     notification.remove();
+  });
+
+  it("Doesn't have an Error Toast anymore", async () => {
+    const notification = await screen.queryByText("test Error");
+
+    expect(notification).toBe(null);
   });
 });
 
@@ -64,6 +76,12 @@ describe("Info Notifications", () => {
 
     notification.remove();
   });
+
+  it("Doesn't have a Success Toast anymore", async () => {
+    const notification = await screen.queryByText("test");
+
+    expect(notification).toBe(null);
+  });
 });
 
 describe("Warn Notifications", () => {
@@ -82,5 +100,11 @@ describe("Warn Notifications", () => {
     expect(notification.innerHTML).toBe("test Warn");
 
     notification.remove();
+  });
+
+  it("Doesn't have a Success Toast anymore", async () => {
+    const notification = await screen.queryByText("test Warn");
+
+    expect(notification).toBe(null);
   });
 });
