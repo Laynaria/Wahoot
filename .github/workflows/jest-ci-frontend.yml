@@ -1,0 +1,15 @@
+name: jest-and-docker-ci-frontend
+
+on:
+  push:
+    paths:
+      - "frontend/**"
+
+jobs:
+  test-front:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Goto client and run tests
+        run: cd frontend && npm i && npm test
