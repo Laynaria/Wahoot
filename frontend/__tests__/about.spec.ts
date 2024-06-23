@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/vue";
 
-// import Index from "../pages/index.vue";
 import About from "~/pages/about.vue";
 
 describe("About", () => {
