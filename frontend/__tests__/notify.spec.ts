@@ -43,18 +43,26 @@ describe("Error Notifications", () => {
   });
 });
 
-//     it("Error Notification function to exist", () => {
-//       expect(notifyError).toBeTruthy();
-//       expect(typeof notifyError).toBe("function");
-//     });
+describe("Info Notifications", () => {
+  it("Info Notification function to exist", () => {
+    expect(notifyInfo).toBeTruthy();
+    expect(typeof notifyInfo).toBe("function");
+  });
 
-//     it("Info Notification function to exist", () => {
-//       expect(notifyInfo).toBeTruthy();
-//       expect(typeof notifyInfo).toBe("function");
-//     });
+  it("Info Toast rendered properly when funciton is called", async () => {
+    render(NotifyWrapper);
+
+    const button = await screen.findByText("Info Button");
+
+    await fireEvent.click(button);
+
+    const notification = await screen.findByText("test");
+
+    expect(notification.innerHTML).toBe("test");
+  });
+});
 
 //     it("Warn Notification function to exist", () => {
 //       expect(notifyWarn).toBeTruthy();
 //       expect(typeof notifyWarn).toBe("function");
 //     });
-//   });
