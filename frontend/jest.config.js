@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
     // this line is optional and the tilde shortcut
@@ -7,9 +7,19 @@ module.exports = {
   },
   transform: {
     "^.+\\.ts?$": "ts-jest",
-    ".*\\.(vue)$": "vue-jest",
+    "^.+\\.vue$": "@vue/vue3-jest",
   },
   moduleFileExtensions: ["ts", "js", "vue", "json"],
+
+  testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    customExportConditions: ["node", "node-addons"],
+  },
+
+  // moduleNameMapper: {
+  //   "^@vue/test-utils":
+  //     "<rootDir>/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js",
+  // },
 
   collectCoverageFrom: [
     "components/**/*.vue",
@@ -20,3 +30,5 @@ module.exports = {
     "store/**/*.ts",
   ],
 };
+
+export default config;

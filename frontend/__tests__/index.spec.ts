@@ -1,14 +1,17 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/vue";
 
-import Index from "../pages/index.vue";
+// import Index from "../pages/index.vue";
+import About from "~/pages/about.vue";
 
-describe("Counter", () => {
-  it("renders the counter component", () => {
-    render(Index);
+describe("About", () => {
+  it("renders the h1 from about page", () => {
+    render(About);
 
     const heading = screen.getByRole("heading", { level: 1 });
 
     expect(heading).toBeDefined();
+
+    expect(heading.innerHTML).toBe("About Us!");
   });
 });
