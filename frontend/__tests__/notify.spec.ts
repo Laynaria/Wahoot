@@ -23,6 +23,8 @@ describe("Success Notifications", () => {
     const notification = await screen.findByText("test Successfull");
 
     expect(notification.innerHTML).toBe("test Successfull");
+
+    notification.remove();
   });
 });
 
@@ -40,6 +42,8 @@ describe("Error Notifications", () => {
     const notification = await screen.findByText("test Error");
 
     expect(notification.innerHTML).toBe("test Error");
+
+    notification.remove();
   });
 });
 
@@ -57,6 +61,8 @@ describe("Info Notifications", () => {
     const notification = await screen.findByText("test");
 
     expect(notification.innerHTML).toBe("test");
+
+    notification.remove();
   });
 });
 
@@ -74,5 +80,7 @@ describe("Warn Notifications", () => {
     const notification = await screen.findByText("test Warn");
 
     expect(notification.innerHTML).toBe("test Warn");
+
+    notification.remove();
   });
 });
