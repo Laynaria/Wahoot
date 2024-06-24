@@ -5,7 +5,7 @@ import About from "~/pages/about.vue";
 
 describe("About", () => {
   it("renders the h1 from about page", () => {
-    render(About);
+    render(About, { props: { test: false } });
 
     const heading = screen.getByRole("heading", { level: 1 });
 
