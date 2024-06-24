@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { meta } from "~/services/meta";
 import type { UserResults } from "~/types/user.types";
 
 const GET_ALL_USERS = gql`
@@ -11,6 +12,8 @@ const GET_ALL_USERS = gql`
     }
   }
 `;
+
+meta("Home", "en");
 
 const { data, error } = await useLazyAsyncQuery<UserResults>(GET_ALL_USERS);
 </script>
