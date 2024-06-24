@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { InjectContext, UserLogin } from "~/types/user.types";
+import { meta } from "~/services/meta";
 
 const { updateUser } = inject("user") as InjectContext;
 
@@ -8,6 +9,8 @@ const LOGIN = gql`
     logIn(password: $password, email: $email)
   }
 `;
+
+meta("Login", "en");
 
 const variables = ref<UserLogin>({
   email: "",

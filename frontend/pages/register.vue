@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { UserRegister } from "~/types/user.types";
+import { meta } from "~/services/meta";
 
 import * as NotifyService from "~/services/notify";
 
@@ -14,6 +15,8 @@ const REGISTER = gql`
     }
   }
 `;
+
+meta("Register", "en");
 
 const router = useRouter();
 
