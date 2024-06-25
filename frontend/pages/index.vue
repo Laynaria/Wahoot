@@ -13,7 +13,11 @@ const GET_ALL_USERS = gql`
   }
 `;
 
-meta("Home", "en");
+const props = defineProps(["test"]);
+
+if (props.test === undefined) {
+  meta("Home", "en");
+}
 
 const { data, error } = await useLazyAsyncQuery<UserResults>(GET_ALL_USERS);
 </script>

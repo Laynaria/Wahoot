@@ -10,7 +10,11 @@ const LOGIN = gql`
   }
 `;
 
-meta("Login", "en");
+const props = defineProps(["test"]);
+
+if (props.test === undefined) {
+  meta("Login", "en");
+}
 
 const variables = ref<UserLogin>({
   email: "",

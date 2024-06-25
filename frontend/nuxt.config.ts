@@ -9,8 +9,8 @@ export default defineNuxtConfig({
     autoImports: true,
     clients: {
       default: {
-        // httpEndpoint: "http://backend:5010/graphql",
-        httpEndpoint: process.env.BACKEND_URL as string,
+        httpEndpoint:
+          (process.env.BACKEND_URL as string) || "http://backend:5010/graphql",
         authType: "Bearer",
         authHeader: "Authorization",
         tokenName: "token",
