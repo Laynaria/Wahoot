@@ -11,6 +11,11 @@ vueApp._context.provides = {
   },
 };
 
+// jest.mock("@apollo/client", () => ({
+//   ...jest.requireActual("@apollo/client"),
+//   useApolloClient: () => null,
+// }));
+
 describe("Login", () => {
   it("renders", () => {
     render(Login, { props: { test: false } });

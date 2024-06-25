@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/apollo"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/apollo", "jest"],
 
   ssr: false,
 
@@ -9,8 +9,8 @@ export default defineNuxtConfig({
     autoImports: true,
     clients: {
       default: {
-        // httpEndpoint: "http://backend:5010/graphql",
-        httpEndpoint: process.env.BACKEND_URL as string,
+        httpEndpoint:
+          (process.env.BACKEND_URL as string) || "http://backend:5010/graphql",
         authType: "Bearer",
         authHeader: "Authorization",
         tokenName: "token",

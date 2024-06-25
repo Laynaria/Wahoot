@@ -16,11 +16,6 @@ const config = {
     customExportConditions: ["node", "node-addons"],
   },
 
-  // moduleNameMapper: {
-  //   "^@vue/test-utils":
-  //     "<rootDir>/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js",
-  // },
-
   collectCoverageFrom: [
     "components/**/*.vue",
     "layouts/**/*.vue",
