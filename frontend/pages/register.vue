@@ -16,7 +16,11 @@ const REGISTER = gql`
   }
 `;
 
-meta("Register", "en");
+const props = defineProps(["test"]);
+
+if (props.test === undefined) {
+  meta("Register", "en");
+}
 
 const router = useRouter();
 
